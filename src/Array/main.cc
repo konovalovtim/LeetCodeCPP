@@ -1,15 +1,13 @@
 #include "RemoveDuplicatesfromSortedArray.cc"
+#include "BestTimeToBuyAndSellStockII.cc"
+#include "iostream"
 
 int main() {
-  std::vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-  int k = 1;
-  int prev = nums[0];
-  for (size_t i = 1; i < nums.size(); i++) {
-    if (nums[i] != prev) {
-      nums[k] = nums[i];
-      k++;
-    }
-    prev = nums[i];
-  }
-  return k;
+  Solution *solution = new Solution();
+  std::vector<int> prices = {7, 1, 5, 3, 6, 4};
+  std::cout << solution->maxProfit(prices) << std::endl;
+  return 0;
 }
+
+//      profit = *max_element(prices.begin(), prices.end());
+//      profit2 = *min_element(prices.begin(), prices.end());
