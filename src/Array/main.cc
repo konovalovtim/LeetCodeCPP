@@ -1,11 +1,10 @@
-#include "RemoveDuplicatesfromSortedArray.cc"
-#include "BestTimeToBuyAndSellStockII.cc"
+#include "ContainsDuplicate.cc"
 #include "iostream"
 
 int main() {
   Solution *solution = new Solution();
-  std::vector<int> prices = {7, 1, 5, 3, 6, 4};
-  std::cout << solution->maxProfit(prices) << std::endl;
+  std::vector<int> prices = {2, 2, 18, 22, 22};
+  std::cout << solution->containsDuplicate(prices) << std::endl;
   return 0;
 }
 
