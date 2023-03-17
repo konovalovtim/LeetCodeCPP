@@ -3,15 +3,15 @@
 class Solution {
  public:
   bool isValidSudoku(std::vector<std::vector<char>> &board) {
-    int i, j;
     bool status = true;
-
-    for (int column = 0; column < 9; column++) {
-      for (int row = 0; row < 9; row++) {
-        if (column != j && board[i][column] == board[i][j])
-          status = false;
-        if (row != i && board[row][j] == board[i][j])
-          status = false;
+    int row[9][9] = {0}, col[9][9] = {0}, sub_33[9][9] = {0};
+    for (int i = 0; i < board.size(); i++) {
+      for (int j = 0; j < board[i].size(); j++) {
+        if (board[i][j] != '.') {
+          int num = board[i][j] - '0' - 1;
+          if (row[i][num] || col[j][num]) status = false;
+          row[i][num] = col[j][num] = 1;
+        }
       }
     }
 
