@@ -1,35 +1,24 @@
 #include <iostream>
+#include <unordered_map>
 #include "vector"
+#include "string"
 #include "set"
+#include "map"
+#include <algorithm>
 
 using namespace std;
 int main() {
-  std::vector<vector<char>> board{
-      {'.', '.', '.', '.', '.', '.', '4', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'1', '.', '.', '.', '.', '.', '2', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-      {'.', '.', '.', '.', '.', '.', '1', '.', '.'}};
-
-  bool status = true;
-  int row[9][9] = {0}, col[9][9] = {0}, sub_33[9][9] = {0};
-  for (int i = 0; i < board.size(); i++) {
-    for (int j = 0; j < board[i].size(); j++) {
-      if (board[i][j] != '.') {
-        int num = board[i][j] - '0' - 1;
-        if (row[i][num] || col[j][num]) status = false;
-        row[i][num] = col[j][num] = 1;
-      }
-    }
-  }
+    std::string s = {"A man, a plan, a canal: Panama"};
+    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+    s.erase(std::remove_if(s.begin(), s.end(), [](char c) {
+      return !std::isalnum(c);
+    }), s.end());
+    std::string rev = s;
+    std::reverse(rev.begin(), rev.end());
+    return s == rev;
 
 
-//  for (int j : board) {
-  std::cout << status;
-//  }
+//  std::cout << res;
+
   return 0;
 }
